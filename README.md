@@ -12,6 +12,7 @@
 - 瀏覽餐廳的詳細資訊
 - 連結餐廳的地址到 Google 地圖
 - 搜尋特定餐廳
+- CRUD 功能 (新增、編輯、刪除)
 
 ## 開始使用
 
@@ -48,3 +49,5 @@
 - Express-Handlebars 3.0.0
 - Bootstrap 5.0.2
 - Font-awesome 5.8.1no
+- body-parser 1.20.0
+- mongoose 6.5.4
