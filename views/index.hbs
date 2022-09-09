@@ -14,22 +14,27 @@
             </div>
         </div>
     </div>
-    <!-- add restaurant  -->
-    <div class="container mt-5">
-        <div class="text-right mb-3">
-            <a href="./new">
-                <button class="btn btn-outline-secondary">新增餐廳</button>
-            </a>
-        </div>
-    </div>
-
     <!-- restaurant list -->
     <div class="container mt-5">
+        <div class="my-3 d-flex flex-row justify-content-end">
+            <form action="./sortby" method="GET" id="sortby">
+                <select onchange="this.form.submit()" class="form-select" name="sort" form="sortby">
+                    <option value="name" {{#if sort1}} selected {{/if}}>餐廳名稱A → Z</option>
+                    <option value="nameDesc" {{#if sort2}} selected {{/if}}>餐廳名稱Z → A</option>
+                    <option value="rateDesc" {{#if sort3}} selected {{/if}}>評分高到低</option>
+                    <option value="rate" {{#if sort4}} selected {{/if}}>評分低到高</option>
+                    <option value="cate" {{#if sort5}} selected {{/if}}>類別</option>
+                    <option value="area" {{#if sort6}} selected {{/if}}>區域</option>
+                </select>
+            </form>
+        </div>
+        
+
         <div class="row d-flex flex-row justify-content-start">
             {{#each rests}}   
             <div class=" col-4">
                 <div class="card-columns">
-                    <a href="/restaurants/{{this._id}}" class="text-secondary">
+                    <div class="text-secondary">
                         <div class="card mb-3">
                             <img class="card-img-top" src="{{this.image}}" alt="{{this.name}}">
                             <div class="card-body p-3">
@@ -39,7 +44,7 @@
                                 <i class="fas fa-utensils pr-2"></i> {{this.category}}
                             </div>
 
-                            <span class="badge badge-pill badge-danger font-weight-normal">
+                            <span class="badge badge-pill badge-danger font-weight-normal badge-custom">
                                 {{this.rating}}
                                 <i class="fas fa-star fa-xs"></i>
                             </span>
@@ -47,19 +52,24 @@
                             </div>
                         
                             <div class="card-footer d-flex justify-content-end flex-wrap">
+                                <a a href="/restaurants/{{this._id}}">
+                                    <button type="button" class="btn btn-outline-secondary btn-sm mx-1">
+                                        More
+                                    </button>
+                                </a>
                                 <a href="/restaurants/{{this._id}}/edit">
-                                    <button class="btn btn-secondary btn-sm mx-1">
+                                    <button class="btn btn-outline-secondary btn-sm mx-1">
                                         Edit
                                     </button>
                                 </a>
-                                <form action="/restaurants/{{this._id}}/delete" method="POST">
+                                <form action="/restaurants/{{this._id}}?_method=DELETE" method="POST">
                                     <button type="submit" class="btn btn-danger btn-sm text-white ms-1">
-                                        delete
+                                        Delete
                                     </button>
                                 </form>
                             </div>
                         </div>
-                    </a>
+                    </div>
                 </div>
             </div>
             {{/each}}  
