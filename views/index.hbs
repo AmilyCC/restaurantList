@@ -19,7 +19,7 @@
         <div class="my-3 d-flex flex-row justify-content-end">
             <form action="./sortby" method="GET" id="sortby">
                 <select onchange="this.form.submit()" class="form-select" name="sort" form="sortby">
-                    <option value="name" {{#if sort1}} selected {{/if}}>餐廳名稱A → Z</option>
+                    <option value="name" {{#if value}} selected {{/if}}>餐廳名稱A → Z</option>
                     <option value="nameDesc" {{#if sort2}} selected {{/if}}>餐廳名稱Z → A</option>
                     <option value="rateDesc" {{#if sort3}} selected {{/if}}>評分高到低</option>
                     <option value="rate" {{#if sort4}} selected {{/if}}>評分低到高</option>
@@ -44,7 +44,7 @@
                                 <i class="fas fa-utensils pr-2"></i> {{this.category}}
                             </div>
 
-                            <span class="badge badge-pill badge-danger font-weight-normal badge-custom">
+                            <span class="badge rounded-pill bg-danger font-weight-normal">
                                 {{this.rating}}
                                 <i class="fas fa-star fa-xs"></i>
                             </span>
